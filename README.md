@@ -1,16 +1,71 @@
-# React + Vite
+# TaskFlow - Task Management Dashboard (Mini Trello-like)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional Task Management Dashboard built with **React**, **Vite**, and **Zustand**. This project was developed as part of a technical assignment to demonstrate proficiency in modern React patterns, state management, and UI/UX design.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo & Repository
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Live Demo:** [https://nxl-tech.vercel.app/](https://nxl-tech.vercel.app/)
+- **GitHub Repository:** [https://github.com/muhammedanasm/nxl-tech](https://github.com/muhammedanasm/nxl-tech)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Authentication (Mocked)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Custom-designed Login Page.
+- Stores user info in **Zustand** store with **persistence** (localStorage).
+- Protected routes (Dashboard is only accessible after login).
+- Professional Logout with **SweetAlert2** confirmation.
+
+### Task Management (Kanban Board)
+
+- **Fetch API:** Initial tasks are fetched from `JSONPlaceholder`.
+- **Three Columns:** Organized into _Todo_, _In Progress_, and _Completed_.
+- **CRUD Operations:**
+  - Create new tasks with a title and description.
+  - Edit existing tasks (disabled for 'Completed' tasks for better UX).
+  - Delete tasks with immediate state update.
+- **Move Logic:** Easily move tasks between status columns using directional buttons.
+
+### Search & Filter
+
+- Search tasks by title.
+- **Debounce Logic:** Implemented a custom `useDebounce` hook to optimize search performance (Point 6 in PDF).
+
+### UI/UX & Design
+
+- **Premium Look:** Clean, modern SaaS-style interface.
+- **Responsive Layout:** Sidebar and Navbar work seamlessly on Mobile and Desktop.
+- **Feedback:** Loading spinners, error alerts, and empty state illustrations.
+- **Glassmorphism:** Modal overlays and premium shadow effects.
+
+---
+
+## Tech Stack
+
+- **Framework:** React 18 (Hooks)
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS & External CSS
+- **State Management:** Zustand (with Persist Middleware)
+- **API Client:** Axios
+- **Icons:** Lucide React
+- **Notifications:** SweetAlert2
+
+---
+
+## Folder Structure
+
+```text
+src/
+├── components/
+│   ├── layout/       # Sidebar, Navbar
+│   ├── tasks/        # TaskCard, TaskModal
+│   └── ui/           # Reusable Button, Input
+├── hooks/            # useDebounce
+├── layouts/          # Main Dashboard Layout
+├── pages/            # Login, Dashboard
+├── services/         # Axios API calls
+├── store/            # Zustand Store (useTaskStore)
+└── styles/           # Global & Sidebar CSS
+```
